@@ -6,6 +6,31 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
+import Link from "next/link";
+
+const services = [
+    {
+        num: "Step 1",
+        title: "Make a Reservation",
+        description: "Schedule your visit by phone, email, or text message.",
+        hasButton: true
+    },
+    {
+        num: "Step 2",
+        title: "Visit the Clinic",
+        description: "Come to our clinic on your scheduled date and time."
+    },
+    {
+        num: "Step 3",
+        title: "Set Up a Treatment Program",
+        description: "Upon arrival, you will undergo a thorough assessment which includes filling out your medical chart and participating in an interview. We will conduct various diagnostic tests such as pulse, abdominal, back, and neck diagnosis to tailor a treatment program suited to your needs."
+    },
+    {
+        num: "Step 4",
+        title: "Begin Acupuncture and Moxibustion Treatment",
+        description: "Our treatment approach is divided into three stages, typically lasting between 45 minutes to an hour, depending on individual conditions and needs."
+    }
+]
 
 
 const projects = [
@@ -53,6 +78,24 @@ const projects = [
     },
 ]
 
+const procedure = {
+    title: "Treatment Procedures",
+    items: [
+        {
+            num: "1",
+            description: "We will address the root causes of the patient's condition using a root treatment method. This approach aims to identify and eliminate factors that hinder the body's natural healing abilities, thereby restoring its inherent capacity for self-healing. If symptoms are alleviated through this root treatment, further symptomatic treatment may not be necessary.",
+        },
+        {
+            num: "2",
+            description: "Should there be a need for further intervention after the root treatment, we will proceed with symptomatic treatment methods. These treatments are designed to alleviate specific symptoms such as pain, stiffness, numbness, dullness, and discomfort."
+        },
+        {
+            num: "3",
+            description: "Patients will receive detailed explanations about their medical conditions, strategies for accelerated recovery including lifestyle and exercise recommendations, and information about the treatment duration and schedule."
+        }
+    ]
+}
+
 const Treatments = () => {
     const [project, setProject] = useState(projects[0])
 
@@ -69,11 +112,69 @@ const Treatments = () => {
                 transition: { delay: 2.4, duration: 0.4, ease: "easeIn" }
             }}
             className="min-h-[80vh] flex flex-col justify-center py-0">
+
+            <section className="min-h[80vh] flex flex-col justify-center py-12 xl:py-4">
+                <div className="container mx-auto">
+                    <h2 className="text-4xl flex font-extrabold mb-4 text-gray-800">How to get treated</h2>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{
+                            opacity: 1,
+                            transition: { delay: 2.4, duration: 0.4, ease: "easeIn" }
+                        }}
+                        className="grid grid-cols-1 gap-[20px]"
+                    >
+                        {services.map((service, index) => {
+                            return (
+                                <div key={index} className="flex-1 flex flex-col justify-center gap-2 group rounded-lg border-2 border-gray-700 p-2">
+                                    <div className="w-full flex justify-between items-center">
+                                        <div className="text-2xl font-extrabold transition-all duration-300">{service.num}</div>
+                                        {service.hasButton && (
+                                            <Link href="/contact" className="p-3 rounded-full text-gray-950 bg-[#AAB396]/80 group-hover:bg-[#AAB396] transition-all duration-500 flex justify-center items-center">
+                                                <p className="text-gray-700 text-md">Book an Appointment</p>
+                                            </Link>
+                                        )}
+                                    </div>
+                                    <h2 className="text-3xl font-bold leading-none text-gray-950">{service.title}</h2>
+                                    <p className="text-gray-800/60">{service.description}</p>
+                                </div>
+                            )
+                        })}
+                    </motion.div>
+                </div>
+            </section>
+            <section className="min-h[80vh] flex flex-col justify-center py-12 xl:py-4">
+                <div className="container mx-auto">
+                    <h2 className="text-4xl flex font-extrabold mb-4 text-gray-800">{procedure.title}</h2>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{
+                            opacity: 1,
+                            transition: { delay: 2.4, duration: 0.4, ease: "easeIn" }
+                        }}
+                        className="grid grid-cols-1 gap-[20px]"
+                    >
+                        {procedure.items.map((procedure, index) => {
+                            return (
+                                <div key={index} className="flex-1 flex flex-col justify-center gap-2 group rounded-lg border-2 border-gray-700 p-2">
+                                    <div className="w-full flex justify-between items-center">
+                                        <div className="text-2xl font-extrabold transition-all duration-300">{procedure.num}</div>
+                                    </div>
+                                    <p className="text-gray-800/60">{procedure.description}</p>
+                                </div>
+                            )
+                        })}
+                    </motion.div>
+                </div>
+            </section>
             <div className="container mx-auto">
+                <h2 className="text-4xl font-extrabold my-10 text-gray-800">Equipment used in treatments</h2>
                 <div className="flex flex-col xl:flex-row xl:gap-[30px]">
+
                     <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+
                         <div className="flex flex-col gap-[30px] h-[50%]">
-                            <h2 className="text-[38px] font-bold leading-none text-[#674636] group-hover:text-accent transition-all duration-500 capitalize">
+                            <h2 className="text-3xl font-bold leading-none text-[#674636] group-hover:text-accent transition-all duration-500 capitalize">
                                 {project.category}
                             </h2>
                             <p className="text-[#674636]/60">{project.description}</p>

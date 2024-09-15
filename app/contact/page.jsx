@@ -95,7 +95,7 @@ const Contact = () => {
                             {info.map((item, index) => {
                                 return (
                                     <li key={index} className="flex items-center gap-6">
-                                        <a href={`${item.href}${item.description}`} className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#AAB396] text-accent rounded-md flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-110">
+                                        <a href={`${item.href}${item.description}`} target="_blank" rel="noopener noreferrer" className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#AAB396] text-accent rounded-md flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-110">
                                             <div className="flex items-center justify-center">
                                                 {item.icon}
                                             </div>

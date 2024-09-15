@@ -56,7 +56,7 @@ const MobileNav = () => {
             <SheetContent className="flex flex-col">
                 {/* logo */}
                 <div className='mt-16 mb-8 text-left text-2xl'>
-                    <Link href="/">
+                    <Link href="/" onClick={handleLinkClick} >
                         <h1 className='text-4xl font-semibold text-gray-500'>Kojima Acupuncture <span className='text-accent'>.</span></h1>
                     </Link>
                 </div>

@@ -1,6 +1,7 @@
 import { JetBrains_Mono, Rubik } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
+import Head from "next/head";
 
 // components
 import Header from "@/components/Header";
@@ -21,11 +22,15 @@ const rubik = Rubik({
 export const metadata = {
   title: "Kojima Acupuncture Clinic",
   description: "Kojima Acupuncture Clinic",
+  icons: {
+    icon: "/assets/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+
       <body className={jetbrainsMono.variable}>
         <Header />
         <StairTransition />
