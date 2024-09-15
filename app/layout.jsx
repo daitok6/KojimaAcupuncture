@@ -1,5 +1,6 @@
 import { JetBrains_Mono, Rubik } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 
 // components
 import Header from "@/components/Header";
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         <StairTransition />
         <PageTransition>
           {children}
+          <Analytics />
         </PageTransition>
       </body>
     </html>
