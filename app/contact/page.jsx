@@ -13,20 +13,20 @@ const info = [
     {
         icon: <FaPhoneAlt />,
         title: "Phone",
-        description: "6479919919",
+        description: "(416) 486 0287",
         href: "tel:"
     },
     {
         icon: <FaEnvelope />,
         title: "Email",
-        description: "kojima@rogers.com",
+        description: "tadashikojima89@gmail.com",
         href: "mailto:"
     },
     {
         icon: <FaMapMarkerAlt />,
         title: "Address",
-        description: "Toronto, Ontario",
-        href: "https://www.google.com/maps/dir//leaside+acupuncture+and+shiatsu+reviews/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x89d4ccd48398b68f:0xbc822418dfa4501c?sa=X&ved=1t:3061&ictx=111"
+        description: "40 Wynford Drive #301C Toronto, Ontario",
+        href: "https://www.google.co.jp/maps/place/40+Wynford+Dr+%23301c,+North+York,+ON+M3C+1J5+%E3%82%AB%E3%83%8A%E3%83%80/@43.7242816,-79.3383161,17z/data=!3m1!4b1!4m5!3m4!1s0x89d4cd09e766292d:0x55aeb91d5d02a745!8m2!3d43.7242816!4d-79.3357412?hl=ja&entry=ttu&g_ep=EgoyMDI0MDkxMS4wIKXMDSoASAFQAw%3D%3D"
     },
 ]
 
@@ -43,6 +43,7 @@ const Contact = () => {
                 .then((result) => {
                     console.log(result.text);
                     alert('Message sent successfully');
+                    form.current.reset();
                 }, (error) => {
                     console.log(error.text);
                     alert('Failed to send the message, please try again.');
