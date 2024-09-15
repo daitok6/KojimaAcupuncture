@@ -30,7 +30,12 @@ const links = [
     {
         name: "Q&A",
         path: "/qa",
+    },
+    {
+        name: "Contact",
+        path: "/contact",
     }
+
 ]
 
 const MobileNav = () => {
@@ -50,7 +55,7 @@ const MobileNav = () => {
             </SheetTrigger>
             <SheetContent className="flex flex-col">
                 {/* logo */}
-                <div className='mt-20 mb-20 text-left text-2xl'>
+                <div className='mt-16 mb-8 text-left text-2xl'>
                     <Link href="/">
                         <h1 className='text-4xl font-semibold text-gray-500'>Kojima Acupuncture <span className='text-accent'>.</span></h1>
                     </Link>

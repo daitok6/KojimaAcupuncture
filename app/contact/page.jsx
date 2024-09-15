@@ -39,7 +39,7 @@ const Contact = () => {
         e.preventDefault();
 
         if (form.current && form.current.tagName === 'FORM') {
-            emailjs.sendForm('service_6nj6bye', 'template_8iwbgxj', form.current)
+            emailjs.sendForm('service_kymn4nk', 'template_8iwbgxj', form.current)
                 .then((result) => {
                     console.log(result.text);
                     alert('Message sent successfully');
