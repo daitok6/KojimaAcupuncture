@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { BsArrowDownRight } from "react-icons/bs"
 import { motion } from "framer-motion";
 
 const services = [
