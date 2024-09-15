@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from 'react';
 import { motion } from "framer-motion";
 
 const services = [
@@ -65,9 +66,50 @@ const services = [
     }
 ]
 
+// const Qa = () => {
+//     return (
+//         <section className="min-h[80vh] flex flex-col justify-center py-12 xl:py-0">
+//             <div className="container mx-auto">
+//                 <motion.div
+//                     initial={{ opacity: 0 }}
+//                     animate={{
+//                         opacity: 1,
+//                         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" }
+//                     }}
+//                     className="grid grid-cols-1 gap-[60px]"
+//                 >
+//                     {services.map((service, index) => {
+//                         return (
+//                             <div key={index} className="flex-1 flex flex-col justify-center gap-6 group">
+//                                 <div className="w-full flex justify-between items-center">
+//                                     <div className="text-5xl font-extrabold text-gray-950 group-hover:text-gray-800 transition-all duration-300">{service.num}</div>
+//                                 </div>
+//                                 <h2 className="text-[42px] font-bold leading-none text-[#674636] group-hover:text-accent transition-all duration-300">{service.title}</h2>
+//                                 <p className="text-[#674636]/60">{service.description}</p>
+//                                 <div className="border-b border-black/20 w-full"></div>
+//                             </div>
+//                         )
+//                     })}
+//                 </motion.div>
+//             </div>
+//         </section>
+//     )
+// }
+
 const Qa = () => {
+    const [activeIndex, setActiveIndex] = useState(null); // State to track the active item
+
+    const toggleDescription = (index) => {
+        // Toggle between showing and hiding the description
+        if (activeIndex === index) {
+            setActiveIndex(null);
+        } else {
+            setActiveIndex(index);
+        }
+    };
+
     return (
-        <section className="min-h[80vh] flex flex-col justify-center py-12 xl:py-0">
+        <section className="min-h-screen flex flex-col justify-center py-12 xl:py-0">
             <div className="container mx-auto">
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -75,24 +117,29 @@ const Qa = () => {
                         opacity: 1,
                         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" }
                     }}
-                    className="grid grid-cols-1 gap-[60px]"
+                    className="grid grid-cols-1 gap-12"
                 >
-                    {services.map((service, index) => {
-                        return (
-                            <div key={index} className="flex-1 flex flex-col justify-center gap-6 group">
-                                <div className="w-full flex justify-between items-center">
-                                    <div className="text-5xl font-extrabold text-gray-950 group-hover:text-gray-800 transition-all duration-300">{service.num}</div>
-                                </div>
-                                <h2 className="text-[42px] font-bold leading-none text-[#674636] group-hover:text-accent transition-all duration-300">{service.title}</h2>
-                                <p className="text-[#674636]/60">{service.description}</p>
-                                <div className="border-b border-black/20 w-full"></div>
+                    {services.map((service, index) => (
+                        <div key={index} className="flex-1 flex flex-col justify-center gap-6 group">
+                            <div className="w-full flex justify-between items-center">
+                                <div className="text-5xl font-extrabold text-gray-950 group-hover:text-gray-800 transition-all duration-300">{service.num}</div>
                             </div>
-                        )
-                    })}
+                            <h2
+                                className="text-[42px] font-bold leading-none text-[#674636] group-hover:text-accent transition-all duration-300 cursor-pointer"
+                                onClick={() => toggleDescription(index)}
+                            >
+                                {service.title}
+                            </h2>
+                            {activeIndex === index && (
+                                <p className="text-[#674636]/60">{service.description}</p>
+                            )}
+                            <div className="border-b border-black/20 w-full"></div>
+                        </div>
+                    ))}
                 </motion.div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default Qa

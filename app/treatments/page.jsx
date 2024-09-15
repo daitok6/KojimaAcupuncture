@@ -57,8 +57,8 @@ const Treatments = () => {
     const [project, setProject] = useState(projects[0])
 
     const handleSlideChange = (swiper) => {
-        const currentIndex = swiper.activeIndex;
-        setProject(projects[currentIndex])
+        const currentIndex = swiper.realIndex;
+        setProject(projects[currentIndex]);
     }
 
     return (
@@ -84,6 +84,7 @@ const Treatments = () => {
                         <Swiper
                             spaceBetween={30}
                             slidesPerView={1}
+                            loop={true}
                             className="xl:h-[520px] mb-4 xl:mb-12"
                             onSlideChange={handleSlideChange}
                         >

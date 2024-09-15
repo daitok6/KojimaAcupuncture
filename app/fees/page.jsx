@@ -37,9 +37,9 @@ const Fees = () => {
                         </div>
                         <div className="flex-col">
                             <h2 className="text-[42px] font-bold leading-none text-gray-950">Open</h2>
-                            <p className="text-gray-800">Monday to Friday 9:00(AM) ~ 7:00(PM)</p>
-                            <p className="text-gray-800">Saturday 8:00(AM) ~ 4:00(PM)</p>
-                            <p className="text-gray-800/60">Closed on Sundays</p>
+                            <p className="text-gray-800">Monday to Friday 9:00(AM) ~ 6:00(PM)</p>
+                            <p className="text-gray-800">Saturday 9:00(AM) ~ 4:00(PM)</p>
+                            <p className="text-gray-800/60">Closed on Sundays and National Holidays</p>
                         </div>
                     </div>
                     {services.map((service, index) => {

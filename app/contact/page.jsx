@@ -39,7 +39,7 @@ const Contact = () => {
         e.preventDefault();
 
         if (form.current && form.current.tagName === 'FORM') {
-            emailjs.sendForm('service_57wlsnv', 'template_8iwbgxj', form.current)
+            emailjs.sendForm('service_6nj6bye', 'template_8iwbgxj', form.current)
                 .then((result) => {
                     console.log(result.text);
                     alert('Message sent successfully');
@@ -70,8 +70,8 @@ const Contact = () => {
                                 <Input name="lastname" type="text" placeholder="Lastname" />
                                 <Input name="email" type="email" placeholder="Email address" />
                                 <Input name="phone" type="tel" placeholder="Phone number" />
-                                <Input name="appointment_date" type="date" />
-                                <Input name="appointment_time" type="time" />
+                                <Input name="appointment_date" type="date" placeholder="Select Date" />
+                                <Input name="appointment_time" type="time" placeholder="Select Time" />
                             </div>
                             <Select name="service">
                                 <SelectTrigger className="w-full">
