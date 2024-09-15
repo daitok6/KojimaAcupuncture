@@ -1,5 +1,7 @@
 "use client"
 
+import emailjs from 'emailjs-com';
+import { useRef } from 'react';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -11,21 +13,45 @@ const info = [
     {
         icon: <FaPhoneAlt />,
         title: "Phone",
-        description: "6479919919"
+        description: "6479919919",
+        href: "tel:"
     },
     {
         icon: <FaEnvelope />,
         title: "Email",
-        description: "daito.k631@gmail.com"
+        description: "kojima@rogers.com",
+        href: "mailto:"
     },
     {
         icon: <FaMapMarkerAlt />,
         title: "Address",
-        description: "Tokyo, Japan"
+        description: "Toronto, Ontario",
+        href: "https://www.google.com/maps/dir//leaside+acupuncture+and+shiatsu+reviews/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x89d4ccd48398b68f:0xbc822418dfa4501c?sa=X&ved=1t:3061&ictx=111"
     },
 ]
 
 const Contact = () => {
+    const form = useRef();
+
+    emailjs.init("_fQKS4Q5xuad-XYUb");
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        if (form.current && form.current.tagName === 'FORM') {
+            emailjs.sendForm('service_57wlsnv', 'template_8iwbgxj', form.current)
+                .then((result) => {
+                    console.log(result.text);
+                    alert('Message sent successfully');
+                }, (error) => {
+                    console.log(error.text);
+                    alert('Failed to send the message, please try again.');
+                });
+        } else {
+            console.error('Form reference is not correctly set.');
+        }
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -37,32 +63,30 @@ const Contact = () => {
             <div className="container mx-auto">
                 <div className="flex flex-col xl:flex-row gap-[30px]">
                     <div className="xl:w-[54%] order-2 xl:order-none">
-                        <form className="flex flex-col gap-6 p-10 bg-[#AAB396] rounded-xl">
-                            <h3 className="text-4xl text-accent">Let's work together</h3>
-                            <p className="text-[#674636]/60">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In felis nunc, sagittis ac sollicitudin fermentum, molestie ultrices libero. Morbi vehicula.
-                            </p>
+                        <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6 p-10 bg-[#AAB396] rounded-xl">
+                            <h3 className="text-4xl text-accent">Book Appointment</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <Input type="firstname" placeholder="Firstname" />
-                                <Input type="lastname" placeholder="Lastname" />
-                                <Input type="email" placeholder="Email address" />
-                                <Input type="phone" placeholder="Phone number" />
+                                <Input name="firstname" type="text" placeholder="Firstname" />
+                                <Input name="lastname" type="text" placeholder="Lastname" />
+                                <Input name="email" type="email" placeholder="Email address" />
+                                <Input name="phone" type="tel" placeholder="Phone number" />
+                                <Input name="appointment_date" type="date" />
+                                <Input name="appointment_time" type="time" />
                             </div>
-                            <Select>
+                            <Select name="service">
                                 <SelectTrigger className="w-full">
                                     <SelectValue placeholder="Select a Service" />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
                                         <SelectLabel>Select a Service</SelectLabel>
-                                        <SelectItem value="est">Web Development</SelectItem>
-                                        <SelectItem value="cst">PHP Backend Development</SelectItem>
-                                        <SelectItem value="mst">MySQL Data Management</SelectItem>
+                                        <SelectItem value="First Visit">First Visit</SelectItem>
+                                        <SelectItem value="Ongoing Treatment">Ongoing Treatment</SelectItem>
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>
-                            <Textarea className="h-[200px]" placeholder="Type your message here" />
-                            <Button size="md" className="max-w-40">Send message</Button>
+                            <Textarea name="message" className="h-[200px]" placeholder="Type your message here" />
+                            <Button size="md" className="max-w-40" type="submit">Send message</Button>
                         </form>
                     </div>
                     <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
@@ -70,15 +94,11 @@ const Contact = () => {
                             {info.map((item, index) => {
                                 return (
                                     <li key={index} className="flex items-center gap-6">
-                                        <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#AAB396] text-accent rounded-md flex items-center justify-center">
-                                            {item.title === "Phone" ?
-                                                <a href="tel:6479919919" className="flex items-center justify-center cursor-pointer">
-                                                    {item.icon}
-                                                </a>
-                                                :
-                                                <div>{item.icon}</div>
-                                            }
-                                        </div>
+                                        <a href={`${item.href}${item.description}`} className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#AAB396] text-accent rounded-md flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-110">
+                                            <div className="flex items-center justify-center">
+                                                {item.icon}
+                                            </div>
+                                        </a>
                                         <div className="flex-1">
                                             <p className="text-[#674636]/60">{item.title}</p>
                                             <h1 className="text-xl">{item.description}</h1>
