@@ -1,7 +1,6 @@
 import { JetBrains_Mono, Rubik } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
-import Head from "next/head";
 
 // components
 import Header from "@/components/Header";
