@@ -33,7 +33,7 @@ const projects = [
     {
         description: "Treatment Room",
         image: "/assets/treatment-room.png",
-        alt: "Treatment Room 1"
+        alt: "Treatment Room"
     },
 ]
 
