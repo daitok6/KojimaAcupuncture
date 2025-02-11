@@ -11,9 +11,14 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 
 const projects = [
     {
-        description: "Clinic Entrance",
-        image: "/assets/clinic-entrance.png",
-        alt: "Clinic Entrance"
+        description: "Clinic Building",
+        image: "/assets/building.png",
+        alt: "Clinic Building"
+    },
+    {
+        description: "Building Entrance",
+        image: "/assets/building-entrance.png",
+        alt: "Building Entrance"
     },
     {
         description: "Parking",
@@ -21,19 +26,14 @@ const projects = [
         alt: "Parking"
     },
     {
-        description: "Waiting Area",
-        image: "/assets/waiting-area.png",
-        alt: "Waiting Area"
+        description: "Clinic Entrance",
+        image: "/assets/clinic.png",
+        alt: "Clinic Entrance"
     },
     {
-        description: "Treatment Room 1",
-        image: "/assets/treatment-room1.png",
+        description: "Treatment Room",
+        image: "/assets/treatment-room.png",
         alt: "Treatment Room 1"
-    },
-    {
-        description: "Treatment Room 2",
-        image: "/assets/treatment-room2.png",
-        alt: "Treatment Room 2"
     },
 ]
 
@@ -57,13 +57,13 @@ const ClinicTour = () => {
                 <Swiper
                     spaceBetween={30}
                     slidesPerView={1}
-                    className="h-[80vh] xl:h-[1500px] mb-12"
+                    className="h-[80vh] xl:h-[85vh] mb-12"
                     onSlideChange={handleSlideChange}
                     loop={true}
                 >
                     {projects.map((project, index) => (
-                        <SwiperSlide key={index} className="w-full h-full xl:h-[1500px]">
-                            <div className="h-full xl:h-[1500px] relative flex justify-center items-center">
+                        <SwiperSlide key={index} className="w-full h-full xl:h-[85vh]">
+                            <div className="h-full xl:h-[85vh] relative flex justify-center items-center">
                                 <div className="absolute inset-0 bg-black/10 z-10"></div>
                                 <Image
                                     src={project.image}
