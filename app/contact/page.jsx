@@ -25,7 +25,7 @@ const info = [
     {
         icon: <FaMapMarkerAlt />,
         title: "Address",
-        description: "40 Wynford Drive #301C Toronto, Ontario",
+        description: "40 Wynford Drive 301 Toronto, Ontario",
         href: "https://www.google.co.jp/maps/place/40+Wynford+Dr+%23301c,+North+York,+ON+M3C+1J5+%E3%82%AB%E3%83%8A%E3%83%80/@43.7242816,-79.3383161,17z/data=!3m1!4b1!4m5!3m4!1s0x89d4cd09e766292d:0x55aeb91d5d02a745!8m2!3d43.7242816!4d-79.3357412?hl=ja&entry=ttu&g_ep=EgoyMDI0MDkxMS4wIKXMDSoASAFQAw%3D%3D"
     },
 ]

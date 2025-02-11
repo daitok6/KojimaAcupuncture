@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 
 const services = [
     {
-        num: "$130",
+        num: "$140",
         title: "First Visit",
         description: "Initial consultation & Treatment",
         href: "/contact"
     },
     {
-        num: "$110",
+        num: "$120",
         title: "Follow-Up Treatment",
         description: "Ongoing sessions to continue your treatment plan",
         href: "/contact"
