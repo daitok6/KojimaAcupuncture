@@ -62,18 +62,25 @@ const ClinicTour = () => {
                     loop={true}
                 >
                     {projects.map((project, index) => (
-                        <SwiperSlide key={index} className="w-full h-full xl:h-[85vh]">
-                            <div className="h-full xl:h-[85vh] relative flex justify-center items-center">
+                        <SwiperSlide key={index} className="w-full">
+                            <div className="relative flex justify-center items-center">
                                 <div className="absolute inset-0 bg-black/10 z-10"></div>
-                                <Image
-                                    src={project.image}
-                                    alt={project.alt}
-                                    layout="fill"
-                                    objectFit="cover"
-                                />
-                                <p className="text-2xl font-bold text-white absolute bottom-10 left-10">{project.description}</p>
+                                <div className="relative w-full">
+                                    <Image
+                                        src={project.image}
+                                        alt={project.alt}
+                                        width={4000}// Use actual image dimensions if available
+                                        height={3024} // Use actual image dimensions if available
+                                        layout="intrinsic" // Important: Adjust height based on image dimensions
+                                        className="object-contain sm:object-cover w-full"
+                                    />
+                                </div>
+                                <p className="text-md xl:text-2xl font-bold text-white absolute bottom-4 xl:bottom-10 left-14 xl:left-10">
+                                    {project.description}
+                                </p>
                             </div>
                         </SwiperSlide>
+
                     ))}
                     <WorkSliderBtns containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none" btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all" />
                 </Swiper>

@@ -25,8 +25,8 @@ const info = [
     {
         icon: <FaMapMarkerAlt />,
         title: "Address",
-        description: "40 Wynford Drive 301 Toronto, Ontario",
-        href: "https://www.google.co.jp/maps/place/40+Wynford+Dr+%23301c,+North+York,+ON+M3C+1J5+%E3%82%AB%E3%83%8A%E3%83%80/@43.7242816,-79.3383161,17z/data=!3m1!4b1!4m5!3m4!1s0x89d4cd09e766292d:0x55aeb91d5d02a745!8m2!3d43.7242816!4d-79.3357412?hl=ja&entry=ttu&g_ep=EgoyMDI0MDkxMS4wIKXMDSoASAFQAw%3D%3D"
+        description: "40 Wynford Drive # 301 Toronto, Ontario",
+        href: "https://www.google.ca/maps/place/40+Wynford+Dr+Unit+%23+301,+North+York,+ON+M3C+1J5+%E3%82%AB%E3%83%8A%E3%83%80/@43.7242702,-79.3405936,17z/data=!3m1!4b1!4m10!1m2!2m1!1s40+Wynford+Dr+Unit+suite+301!3m6!1s0x89d4cd09e75cb711:0xd7390ddc0ef4ac2!8m2!3d43.7242703!4d-79.3357227!15sChw0MCBXeW5mb3JkIERyIFVuaXQgc3VpdGUgMzAxkgEQY29tcG91bmRfc2VjdGlvbuABAA!16s%2Fg%2F11lr3qjttp?hl=ja&entry=ttu&g_ep=EgoyMDI1MDIwOS4wIKXMDSoASAFQAw%3D%3D"
     },
 ]
 
@@ -60,7 +60,7 @@ const Contact = () => {
                 opacity: 1,
                 transition: { delay: 2.4, duration: 0.4, ease: "easeIn" }
             }}
-            className="py-6">
+            className="py-2">
             <div className="container mx-auto">
                 <div className="flex flex-col xl:flex-row gap-[30px]">
                     <div className="xl:w-[54%] order-2 xl:order-none">

@@ -113,7 +113,7 @@ const Treatments = () => {
             }}
             className="min-h-[80vh] flex flex-col justify-center py-0">
 
-            <section className="min-h[80vh] flex flex-col justify-center py-12 xl:py-4">
+            <section className="min-h[80vh] flex flex-col justify-center py-2 xl:py-4">
                 <div className="container mx-auto">
                     <h2 className="text-4xl flex font-extrabold mb-4 text-gray-800">How to get treated</h2>
                     <motion.div
