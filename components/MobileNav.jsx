@@ -5,42 +5,18 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CiMenuFries } from 'react-icons/ci';
+import LanguageToggle from './LanguageToggle';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getTranslation } from '@/lib/translations';
 
-const links = [
-    {
-        name: "home",
-        path: "/",
-    },
-    {
-        name: "treatments",
-        path: "/treatments",
-    },
-    {
-        name: "About Me",
-        path: "/aboutme",
-    },
-    {
-        name: "fees & appointment",
-        path: "/fees",
-    },
-    {
-        name: "clinic tour",
-        path: "/clinictour",
-    },
-    {
-        name: "Q&A",
-        path: "/qa",
-    },
-    {
-        name: "Contact",
-        path: "/contact",
-    }
-
-]
+const navKeys = ["home", "treatments", "aboutMe", "feesAppointment", "clinicTour", "qa", "contact"];
+const paths = ["/", "/treatments", "/aboutme", "/fees", "/clinictour", "/qa", "/contact"];
 
 const MobileNav = () => {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const { language } = useLanguage();
+    const t = (key) => getTranslation(language, `nav.${key}`);
 
     const handleLinkClick = () => {
         setIsOpen(false);
@@ -49,28 +25,28 @@ const MobileNav = () => {
     return (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-                <button className='flex justify-center items-center' onClick={() => setIsOpen(true)}>
+                <button className='flex justify-center items-center' onClick={() => setIsOpen(true)} aria-label="Open menu">
                     <CiMenuFries className='text-[32px] text-accent' />
                 </button>
             </SheetTrigger>
             <SheetContent className="flex flex-col">
-                {/* logo */}
-                <div className='mt-16 mb-8 text-left text-2xl'>
-                    <Link href="/" onClick={handleLinkClick} >
-                        <h1 className='text-4xl font-semibold text-gray-500'>Kojima Acupuncture <span className='text-accent'>.</span></h1>
+                <div className='mt-16 mb-6 text-left'>
+                    <Link href="/" onClick={handleLinkClick}>
+                        <h2 className='text-4xl font-semibold text-accent/70'>Kojima Acupuncture <span className='text-accent'>.</span></h2>
                     </Link>
                 </div>
-                {/* nav */}
-                {/* <nav className='flex flex-col justify-center items-center gap-8'> */}
-                <nav className='flex flex-col justify-center items-center gap-8'>
-                    {links.map((link, index) => (
+                <div className='mb-6'>
+                    <LanguageToggle />
+                </div>
+                <nav className='flex flex-col justify-center items-center gap-8' aria-label="Mobile navigation">
+                    {navKeys.map((key, index) => (
                         <Link
-                            href={link.path}
-                            key={index}
-                            className={`${link.path === pathname && "text-accent border-b-2 border-accent"} text-xl capitalize hover:text-accent transition-all`}
+                            href={paths[index]}
+                            key={key}
+                            className={`${pathname === paths[index] ? "text-accent border-b-2 border-accent" : ""} text-xl hover:text-accent transition-all`}
                             onClick={handleLinkClick}
                         >
-                            {link.name}
+                            {t(key)}
                         </Link>
                     ))}
                 </nav>

@@ -2,48 +2,31 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/lib/translations";
 
-const links = [
-  {
-    name: "home",
-    path: "/",
-  },
-  {
-    name: "treatments",
-    path: "/treatments",
-  },
-  {
-    name: "About Me",
-    path: "/aboutme",
-  },
-  {
-    name: "fees & appointment",
-    path: "/fees",
-  },
-  {
-    name: "clinic tour",
-    path: "/clinictour",
-  },
-  {
-    name: "Q&A",
-    path: "/qa",
-  }
-]
+const navKeys = ["home", "treatments", "aboutMe", "feesAppointment", "clinicTour", "qa"];
+
+const paths = ["/", "/treatments", "/aboutme", "/fees", "/clinictour", "/qa"];
 
 const Nav = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const { language } = useLanguage();
+  const t = (key) => getTranslation(language, `nav.${key}`);
 
   return (
-    <nav className="flex gap-8">
-      {links.map((link, index) => {
-        return (
-          <Link href={link.path} key={index} className={`${link.path === pathname && "text-accent border-b-2 border-accent"} capitalize font-medium hover:text-accent transition-all`}>
-            {link.name}
-          </Link>
-        )
-      })}
+    <nav className="flex gap-8" aria-label="Main navigation">
+      {navKeys.map((key, index) => (
+        <Link
+          href={paths[index]}
+          key={key}
+          className={`font-medium text-sm pb-0.5 border-b-2 transition-all duration-300 ${pathname === paths[index] ? "text-accent border-accent" : "text-accent/70 border-transparent hover:text-accent hover:border-accent/30"}`}
+        >
+          {t(key)}
+        </Link>
+      ))}
     </nav>
-  )
-}
+  );
+};
 
 export default Nav

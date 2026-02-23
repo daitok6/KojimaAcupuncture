@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-primary bg-primary text-[#674636] leading-loose;
+    @apply font-primary bg-primary text-accent leading-relaxed antialiased;
   }
   .h1 {
     @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
@@ -20,5 +20,11 @@
   }
   .text-outline-hover {
     -webkit-text-stroke: 1px #00ff99;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
