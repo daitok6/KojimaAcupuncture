@@ -1,6 +1,6 @@
 "use client"
 
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { useRef } from 'react';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -33,7 +33,7 @@ const info = [
 const Contact = () => {
     const form = useRef();
 
-    emailjs.init("_fQKS4Q5xuad-XYUb");
+    emailjs.init({ publicKey: "_fQKS4Q5xuad-XYUb" });
 
     const sendEmail = (e) => {
         e.preventDefault();
