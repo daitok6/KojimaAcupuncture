@@ -74,12 +74,12 @@ const Contact = () => {
                   {t("contact.bookAppointment")}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <Input name="firstname" type="text" placeholder={t("contact.firstname")} aria-label={t("contact.firstname")} />
-                  <Input name="lastname" type="text" placeholder={t("contact.lastname")} aria-label={t("contact.lastname")} />
-                  <Input name="email" type="email" placeholder={t("contact.email")} aria-label={t("contact.email")} />
-                  <Input name="phone" type="tel" placeholder={t("contact.phone")} aria-label={t("contact.phone")} />
-                  <Input name="appointment_date" type="date" placeholder={t("contact.selectDate")} aria-label={t("contact.selectDate")} />
-                  <Input name="appointment_time" type="time" placeholder={t("contact.selectTime")} aria-label={t("contact.selectTime")} />
+                  <Input name="firstname" type="text" placeholder={t("contact.firstname")} aria-label={t("contact.firstname")} required />
+                  <Input name="lastname" type="text" placeholder={t("contact.lastname")} aria-label={t("contact.lastname")} required />
+                  <Input name="email" type="email" placeholder={t("contact.email")} aria-label={t("contact.email")} required />
+                  <Input name="phone" type="tel" placeholder={t("contact.phone")} aria-label={t("contact.phone")} required />
+                  <Input name="appointment_date" type="date" placeholder={t("contact.selectDate")} aria-label={t("contact.selectDate")} required />
+                  <Input name="appointment_time" type="time" placeholder={t("contact.selectTime")} aria-label={t("contact.selectTime")} required />
                 </div>
                 <Select name="service">
                   <SelectTrigger className="w-full" aria-label={t("contact.selectService")}>
