@@ -69,7 +69,7 @@ export default function HomePage() {
               width={2000}
               height={1000}
               src="/assets/building.png"
-              quality={100}
+
               alt="Kojima Acupuncture Clinic building exterior at 40 Wynford Drive Toronto"
               className="pb-14"
             />
@@ -81,7 +81,7 @@ export default function HomePage() {
               width={2000}
               height={1000}
               src="/assets/parking.png"
-              quality={100}
+
               alt="Parking lot and visitor parking at Kojima Acupuncture Clinic"
               className="pb-14"
             />
