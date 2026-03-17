@@ -42,12 +42,10 @@ const Contact = () => {
         .sendForm("service_kymn4nk", "template_8iwbgxj", form.current)
         .then(
           (result) => {
-            console.log(result.text);
             alert(t("contact.messageSent"));
             form.current.reset();
           },
           (error) => {
-            console.log(error.text);
             alert(t("contact.messageFailed"));
           }
         );
