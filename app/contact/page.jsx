@@ -33,21 +33,23 @@ const Contact = () => {
     { icon: <FaMapMarkerAlt />, title: t("contact.addressLabel"), description: "40 Wynford Drive # 301 Toronto, Ontario", href: MAPS_URL },
   ];
 
-  emailjs.init({ publicKey: "_fQKS4Q5xuad-XYUb" });
+  emailjs.init({ publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY });
 
   const sendEmail = (e) => {
     e.preventDefault();
     if (form.current && form.current.tagName === "FORM") {
       emailjs
-        .sendForm("service_kymn4nk", "template_8iwbgxj", form.current)
+        .sendForm(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+          form.current
+        )
         .then(
           (result) => {
-            console.log(result.text);
             alert(t("contact.messageSent"));
             form.current.reset();
           },
           (error) => {
-            console.log(error.text);
             alert(t("contact.messageFailed"));
           }
         );
