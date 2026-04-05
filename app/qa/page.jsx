@@ -28,7 +28,7 @@ const Qa = () => {
       >
         <div className="container mx-auto">
           <h2 id="qa-heading" className="sr-only">
-            {language === "ja" ? "よくある質問" : "Frequently Asked Questions"}
+            {t("qa.heading")}
           </h2>
           <motion.div
             initial={{ opacity: 0 }}

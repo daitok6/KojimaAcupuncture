@@ -29,7 +29,7 @@ const ClinicTour = () => {
       >
         <section className="container mx-auto" aria-labelledby="clinic-tour-heading">
           <h2 id="clinic-tour-heading" className="sr-only">
-            {language === "ja" ? "クリニック案内" : "Clinic Tour"}
+            {t("clinicTour.heading")}
           </h2>
           <Swiper
             spaceBetween={30}
