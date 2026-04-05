@@ -23,7 +23,7 @@ const MAPS_URL =
   "https://www.google.ca/maps/place/40+Wynford+Dr+Unit+%23+301,+North+York,+ON+M3C+1J5+%E3%82%AB%E3%83%8A%E3%83%80/@43.7242702,-79.3405936,17z/data=!3m1!4b1!4m10!1m2!2m1!1s40+Wynford+Dr+Unit+suite+301!3m6!1s0x89d4cd09e75cb711:0xd7390ddc0ef4ac2!8m2!3d43.7242703!4d-79.3357227!15sChw0MCBXeW5mb3JkIERyIFVuaXQgc3VpdGUgMzAxkgEQY29tcG91bmRfc2VjdGlvbuABAA!16s%2Fg%2F11lr3qjttp?hl=ja&entry=ttu";
 
 // Initialize EmailJS once at module level
-emailjs.init({ publicKey: "_fQKS4Q5xuad-XYUb" });
+emailjs.init({ publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY });
 
 const Contact = () => {
   const form = useRef();
@@ -43,7 +43,7 @@ const Contact = () => {
     setSending(true);
     if (form.current && form.current.tagName === "FORM") {
       emailjs
-        .sendForm("service_kymn4nk", "template_8iwbgxj", form.current)
+        .sendForm(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, form.current)
         .then(
           (result) => {
             alert(t("contact.messageSent"));
