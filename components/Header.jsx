@@ -17,7 +17,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="group transition-colors duration-300">
           <h1 className="text-3xl xl:text-3xl font-semibold group-hover:text-accent transition-colors">
-            Kojima Acupuncture<span className="text-accent">.</span>
+            Kojima <span className="whitespace-nowrap">Acupuncture<span className="text-accent">.</span></span>
           </h1>
         </Link>
 

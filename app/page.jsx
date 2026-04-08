@@ -20,7 +20,7 @@ export default function HomePage() {
         <div className="container mx-auto">
           <div className="flex flex-col xl:flex-row items-center justify-between">
             <div className="text-center xl:text-left order-2 xl:order-none">
-              <h1 id="clinic-title" className="h1 mb-6">
+              <h1 id="clinic-title" className="h1 mb-6 [word-break:normal]">
                 {t("home.title")}
               </h1>
               <p className="text-accent text-2xl">{t("home.subtitle")}</p>
