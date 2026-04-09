@@ -27,7 +27,7 @@ export default function HomePage() {
               <p className="text-xs mb-4 ml-4 tracking-widest uppercase text-accent/60">
                 {t("home.credential")}
               </p>
-              <p className="max-w-[500px] xl:mx-0 mb-5 text-accent/80 leading-relaxed">
+              <p className="max-w-[500px] xl:mx-0 mb-5 text-accent/80 leading-relaxed text-left">
                 {t("home.intro")}
               </p>
               <div className="w-full flex gap-2">
