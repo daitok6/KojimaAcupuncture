@@ -27,9 +27,17 @@ export default function HomePage() {
               <p className="text-xs mb-4 ml-4 tracking-widest uppercase text-accent/60">
                 {t("home.credential")}
               </p>
-              <p className="max-w-[500px] xl:mx-0 mb-5 text-accent/80 leading-relaxed text-left">
+              <p className="max-w-[500px] xl:mx-0 mb-3 text-accent/80 leading-relaxed text-left">
                 {t("home.intro")}
               </p>
+              <ul className="max-w-[500px] xl:mx-0 mb-5 flex flex-col gap-2 text-left">
+                {t("home.introBullets").map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-accent/80">
+                    <span className="text-lg leading-snug">{item.icon}</span>
+                    <span className="leading-snug">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
               <div className="w-full flex gap-2">
                 <a href="/contact" className="flex flex-col mx-auto xl:mx-0 xl:flex-row items-center gap-8">
                   <Button variant="default" size="lg" className="uppercase flex items-center gap-2 mb-5">
